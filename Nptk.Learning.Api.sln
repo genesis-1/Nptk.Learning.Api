@@ -5,9 +5,17 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nptk.Learning.Api", "Nptk.Learning.Api.csproj", "{A96A723F-3469-482B-951B-51D85C03DECF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nptk.Learning.Contracts", "..\Nptk.Learning.Contracts\Nptk.Learning.Contracts.csproj", "{DD79EBF4-CC4F-422C-B9D4-67AD84BED801}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nptk.Learning.Contracts", "..\Nptk.Learning.Contracts\Nptk.Learning.Contracts.csproj", "{DD79EBF4-CC4F-422C-B9D4-67AD84BED801}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nptk.Learning.LoggerSerice", "..\Nptk.Learning.LoggerSerice\Nptk.Learning.LoggerSerice.csproj", "{D748F46D-93E9-4D7E-8A7A-190F1B7B72B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nptk.Learning.LoggerSerice", "..\Nptk.Learning.LoggerSerice\Nptk.Learning.LoggerSerice.csproj", "{D748F46D-93E9-4D7E-8A7A-190F1B7B72B1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nptk.Learning.Entities", "..\Nptk.Learning.Entities\Nptk.Learning.Entities.csproj", "{F59EF29E-2456-4D82-8481-E3964C1104DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nptk.Learning.Repository", "..\Nptk.Learning.Repository\Nptk.Learning.Repository.csproj", "{9F303A49-25AC-4F64-B170-304E73E5C290}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nptk.Learning.Service", "..\Nptk.Learning.Service\Nptk.Learning.Service.csproj", "{8A67B739-82C7-436E-985D-2D765545CF7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nptk.Learning.Service.Contracts", "..\Nptk.Learning.Service.Contracts\Nptk.Learning.Service.Contracts.csproj", "{AAB3DBA4-F072-4CD7-A269-3D2BC957B05F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +35,22 @@ Global
 		{D748F46D-93E9-4D7E-8A7A-190F1B7B72B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D748F46D-93E9-4D7E-8A7A-190F1B7B72B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D748F46D-93E9-4D7E-8A7A-190F1B7B72B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F59EF29E-2456-4D82-8481-E3964C1104DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F59EF29E-2456-4D82-8481-E3964C1104DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F59EF29E-2456-4D82-8481-E3964C1104DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F59EF29E-2456-4D82-8481-E3964C1104DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F303A49-25AC-4F64-B170-304E73E5C290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F303A49-25AC-4F64-B170-304E73E5C290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F303A49-25AC-4F64-B170-304E73E5C290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F303A49-25AC-4F64-B170-304E73E5C290}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A67B739-82C7-436E-985D-2D765545CF7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A67B739-82C7-436E-985D-2D765545CF7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A67B739-82C7-436E-985D-2D765545CF7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A67B739-82C7-436E-985D-2D765545CF7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAB3DBA4-F072-4CD7-A269-3D2BC957B05F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAB3DBA4-F072-4CD7-A269-3D2BC957B05F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAB3DBA4-F072-4CD7-A269-3D2BC957B05F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAB3DBA4-F072-4CD7-A269-3D2BC957B05F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
