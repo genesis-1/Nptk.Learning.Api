@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nptk.Learning.Contracts;
 using Nptk.Learning.LoggerSerice;
+using Nptk.Learning.Main;
 using Nptk.Learning.Repository;
 using Nptk.Learning.Service.Contracts;
 
@@ -40,6 +41,11 @@ namespace Nptk.Learning.Api.Extensions
 
         public static void ConfigureServiceManager(this IServiceCollection services) =>
         services.AddScoped<IServiceManager, Service.ServiceManager>();
+
+        public static IMvcBuilder AddCustomCSVFormatter(this IMvcBuilder builder) =>
+        builder.AddMvcOptions(config => config.OutputFormatters.Add(new
+        CsvOutputFormatter()));
+
 
 
 
