@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Nptk.Learning.LoggerSerice\Nptk.Learning.LoggerSerice.csproj" />
+    <ProjectReference Include="..\Nptk.Learning.Presentation\Nptk.Learning.Presentation.csproj" />
     <ProjectReference Include="..\Nptk.Learning.Repository\Nptk.Learning.Repository.csproj" />
     <ProjectReference Include="..\Nptk.Learning.Service\Nptk.Learning.Service.csproj" />
   </ItemGroup>

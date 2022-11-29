@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nptk.Learning.Api", "Nptk.Learning.Api.csproj", "{A96A723F-3469-482B-951B-51D85C03DECF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nptk.Learning.Main", "Nptk.Learning.Main.csproj", "{A96A723F-3469-482B-951B-51D85C03DECF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nptk.Learning.Contracts", "..\Nptk.Learning.Contracts\Nptk.Learning.Contracts.csproj", "{DD79EBF4-CC4F-422C-B9D4-67AD84BED801}"
 EndProject
@@ -16,6 +16,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nptk.Learning.Service", "..\Nptk.Learning.Service\Nptk.Learning.Service.csproj", "{8A67B739-82C7-436E-985D-2D765545CF7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nptk.Learning.Service.Contracts", "..\Nptk.Learning.Service.Contracts\Nptk.Learning.Service.Contracts.csproj", "{AAB3DBA4-F072-4CD7-A269-3D2BC957B05F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nptk.Learning.Presentation", "..\Nptk.Learning.Presentation\Nptk.Learning.Presentation.csproj", "{F25CA55C-A79C-4409-948C-EAC455D65895}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nptk.Learning.Shared", "..\Nptk.Learning.Shared\Nptk.Learning.Shared.csproj", "{2FF62D47-BD8A-4F45-A872-B8FC8A87357E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{AAB3DBA4-F072-4CD7-A269-3D2BC957B05F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAB3DBA4-F072-4CD7-A269-3D2BC957B05F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAB3DBA4-F072-4CD7-A269-3D2BC957B05F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F25CA55C-A79C-4409-948C-EAC455D65895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F25CA55C-A79C-4409-948C-EAC455D65895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F25CA55C-A79C-4409-948C-EAC455D65895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F25CA55C-A79C-4409-948C-EAC455D65895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FF62D47-BD8A-4F45-A872-B8FC8A87357E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF62D47-BD8A-4F45-A872-B8FC8A87357E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF62D47-BD8A-4F45-A872-B8FC8A87357E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF62D47-BD8A-4F45-A872-B8FC8A87357E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
