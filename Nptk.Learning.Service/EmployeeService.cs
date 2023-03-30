@@ -29,7 +29,7 @@ namespace Nptk.Learning.Service
         public IEnumerable<EmployeeDto> GetEmployees(Guid companyId, bool trackChanges)
         {
 
-            var company = _repository.Company.GetCompany(companyId, trackChanges);
+            var company = _repository.Company.GetCompanyAsync(companyId, trackChanges);
             if (company is null)
                 throw new CompanyNotFoundException(companyId);
             var employeesFromDb = _repository.Employee.GetEmployees(companyId,
