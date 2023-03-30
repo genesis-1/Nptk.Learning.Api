@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nptk.Learning.Contracts\Nptk.Learning.Contracts.csproj" />
+    <ProjectReference Include="..\Nptk.Learning.Entities\Nptk.Learning.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
