@@ -1,4 +1,5 @@
 ﻿using Nptk.Learning.Entities;
+using Nptk.Learning.Shared.RequestFeatures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,8 @@ namespace Nptk.Learning.Contracts
 
         void DeleteEmployee(Employee employee);
 
-       
+        public Task<PagedList<Employee>> GetEmployeesAsync(Guid companyId, EmployeeParameters employeeParameters, bool trackChanges);
+
 
 
     }

@@ -4,6 +4,7 @@ using Nptk.Learning.Entities;
 using Nptk.Learning.Entities.Exceptions;
 using Nptk.Learning.Service.Contracts;
 using Nptk.Learning.Shared.DataTransferObjects;
+using Nptk.Learning.Shared.RequestFeatures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,18 @@ namespace Nptk.Learning.Service
             return employeesDto;
 
         }
+        public async Task<(IEnumerable<EmployeeDto> employees, MetaData metaData)> GetEmployeesAsync(Guid companyId,
+        EmployeeParameters employeeParameters, bool trackChanges)
+        {
+            await CheckIfCompanyExists(companyId, trackChanges);
+
+            var employeesWithMetaData = await _repository.Employee
+            .GetEmployeesAsync(companyId, employeeParameters, trackChanges);
+            var employeesDto =
+            _mapper.Map<IEnumerable<EmployeeDto>>(employeesWithMetaData);
+            return (employees: employeesDto, metaData: employeesWithMetaData.MetaData);
+        }
+
 
         public EmployeeDto GetEmployee(Guid companyId, Guid id, bool trackChanges)
         {
@@ -45,7 +58,7 @@ namespace Nptk.Learning.Service
             if (company is null)
                 throw new CompanyNotFoundException(companyId);
             var employeeDb = GetEmployeeForCompanyAndCheckIfItExists(companyId, id, trackChanges);
-            
+
             var employee = _mapper.Map<EmployeeDto>(employeeDb);
             return employee;
         }
@@ -70,7 +83,7 @@ employeeForCreation, bool trackChanges)
                 throw new CompanyNotFoundException(companyId);
             var employeeForCompany = GetEmployeeForCompanyAndCheckIfItExists(companyId, id,
             trackChanges);
-            
+
             _repository.Employee.DeleteEmployee(employeeForCompany);
             _repository.Save();
         }
@@ -84,7 +97,7 @@ employeeForCreation, bool trackChanges)
                 throw new CompanyNotFoundException(companyId);
             var employeeEntity = GetEmployeeForCompanyAndCheckIfItExists(companyId, id,
             empTrackChanges);
-          
+
             _mapper.Map(employeeForUpdate, employeeEntity);
             _repository.Save();
         }
@@ -98,7 +111,7 @@ employeeForCreation, bool trackChanges)
                 throw new CompanyNotFoundException(companyId);
             var employeeEntity = GetEmployeeForCompanyAndCheckIfItExists(companyId, id,
             empTrackChanges);
-          
+
             var employeeToPatch = _mapper.Map<EmployeeForUpdateDto>(employeeEntity);
             return (employeeToPatch, employeeEntity);
         }
@@ -106,7 +119,7 @@ employeeForCreation, bool trackChanges)
 
         private Employee GetEmployeeForCompanyAndCheckIfItExists(Guid companyId, Guid id, bool trackChanges)
         {
-            var employeeDb =  _repository.Employee.GetEmployee(companyId, id,
+            var employeeDb = _repository.Employee.GetEmployee(companyId, id,
             trackChanges);
             if (employeeDb is null)
                 throw new EmployeeNotFoundException(id);
@@ -118,6 +131,18 @@ employeeForCreation, bool trackChanges)
             _mapper.Map(employeeToPatch, employeeEntity);
             _repository.Save();
         }
+
+        private async Task CheckIfCompanyExists(Guid companyId, bool trackChanges)
+        {
+
+            var company = await _repository.Company.GetCompanyAsync(companyId, trackChanges);
+            if (company is null)
+            {
+                throw new CompanyNotFoundException(companyId);
+            }
+
+        }
+
 
     }
 }

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Nptk.Learning.Entities\Nptk.Learning.Entities.csproj" />
+    <ProjectReference Include="..\Nptk.Learning.Shared\Nptk.Learning.Shared.csproj" />
   </ItemGroup>
 
 </Project>

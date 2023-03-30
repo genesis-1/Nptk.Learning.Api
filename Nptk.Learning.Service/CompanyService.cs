@@ -102,7 +102,16 @@ namespace Nptk.Learning.Service
             await _repository.SaveAsync();
         }
 
-       
+        private async Task CheckIfCompanyExists(Guid companyId, bool trackChanges)
+        {
+
+            var company = await _repository.Company.GetCompanyAsync(companyId,trackChanges);
+            if(company is null)
+            {
+                throw new CompanyNotFoundException(companyId);
+            }
+
+        }
 
        
 

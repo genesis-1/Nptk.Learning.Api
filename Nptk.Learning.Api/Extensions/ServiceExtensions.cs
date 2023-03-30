@@ -17,7 +17,8 @@ namespace Nptk.Learning.Api.Extensions
                     options.AddPolicy("CorsPolicy",
                         builder => builder.AllowAnyOrigin()
                         .AllowAnyMethod()
-                        .AllowAnyHeader());
+                        .AllowAnyHeader()
+                        .WithHeaders("X-Pagination"));
                 }
                 );
 

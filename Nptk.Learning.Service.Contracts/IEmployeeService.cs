@@ -1,5 +1,6 @@
 ﻿using Nptk.Learning.Entities;
 using Nptk.Learning.Shared.DataTransferObjects;
+using Nptk.Learning.Shared.RequestFeatures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,8 @@ namespace Nptk.Learning.Service.Contracts
 {
     public interface IEmployeeService
     {
-        IEnumerable<EmployeeDto> GetEmployees(Guid companyId, bool trackChanges);
+       
+        public IEnumerable<EmployeeDto> GetEmployees(Guid companyId, bool trackChanges);
         EmployeeDto GetEmployee(Guid companyId, Guid id, bool trackChanges);
         EmployeeDto CreateEmployeeForCompany(Guid companyId, EmployeeForCreationDto
         employeeForCreation, bool trackChanges);
@@ -24,6 +26,9 @@ namespace Nptk.Learning.Service.Contracts
 Guid companyId, Guid id, bool compTrackChanges, bool empTrackChanges);
         void SaveChangesForPatch(EmployeeForUpdateDto employeeToPatch, Employee
         employeeEntity);
+
+        Task<(IEnumerable<EmployeeDto> employees, MetaData metaData)> GetEmployeesAsync(Guid companyId,
+EmployeeParameters employeeParameters, bool trackChanges);
 
 
     }
