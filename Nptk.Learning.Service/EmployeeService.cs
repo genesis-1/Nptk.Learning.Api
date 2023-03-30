@@ -32,7 +32,7 @@ namespace Nptk.Learning.Service
             var company = _repository.Company.GetCompanyAsync(companyId, trackChanges);
             if (company is null)
                 throw new CompanyNotFoundException(companyId);
-            var employeesFromDb = _repository.Employee.GetEmployees(companyId,
+            var employeesFromDb = (companyId,
             trackChanges);
             var employeesDto = _mapper.Map<IEnumerable<EmployeeDto>>(employeesFromDb);
             return employeesDto;
@@ -44,9 +44,8 @@ namespace Nptk.Learning.Service
             var company = _repository.Company.GetCompany(companyId, trackChanges);
             if (company is null)
                 throw new CompanyNotFoundException(companyId);
-            var employeeDb = _repository.Employee.GetEmployee(companyId, id, trackChanges);
-            if (employeeDb is null)
-                throw new EmployeeNotFoundException(id);
+            var employeeDb = GetEmployeeForCompanyAndCheckIfItExists(companyId, id, trackChanges);
+            
             var employee = _mapper.Map<EmployeeDto>(employeeDb);
             return employee;
         }
@@ -69,10 +68,9 @@ employeeForCreation, bool trackChanges)
             var company = _repository.Company.GetCompany(companyId, trackChanges);
             if (company is null)
                 throw new CompanyNotFoundException(companyId);
-            var employeeForCompany = _repository.Employee.GetEmployee(companyId, id,
+            var employeeForCompany = GetEmployeeForCompanyAndCheckIfItExists(companyId, id,
             trackChanges);
-            if (employeeForCompany is null)
-                throw new EmployeeNotFoundException(id);
+            
             _repository.Employee.DeleteEmployee(employeeForCompany);
             _repository.Save();
         }
@@ -84,10 +82,9 @@ employeeForCreation, bool trackChanges)
             var company = _repository.Company.GetCompany(companyId, compTrackChanges);
             if (company is null)
                 throw new CompanyNotFoundException(companyId);
-            var employeeEntity = _repository.Employee.GetEmployee(companyId, id,
+            var employeeEntity = GetEmployeeForCompanyAndCheckIfItExists(companyId, id,
             empTrackChanges);
-            if (employeeEntity is null)
-                throw new EmployeeNotFoundException(id);
+          
             _mapper.Map(employeeForUpdate, employeeEntity);
             _repository.Save();
         }
@@ -99,12 +96,21 @@ employeeForCreation, bool trackChanges)
             var company = _repository.Company.GetCompany(companyId, compTrackChanges);
             if (company is null)
                 throw new CompanyNotFoundException(companyId);
-            var employeeEntity = _repository.Employee.GetEmployee(companyId, id,
+            var employeeEntity = GetEmployeeForCompanyAndCheckIfItExists(companyId, id,
             empTrackChanges);
-            if (employeeEntity is null)
-                throw new EmployeeNotFoundException(companyId);
+          
             var employeeToPatch = _mapper.Map<EmployeeForUpdateDto>(employeeEntity);
             return (employeeToPatch, employeeEntity);
+        }
+
+
+        private Employee GetEmployeeForCompanyAndCheckIfItExists(Guid companyId, Guid id, bool trackChanges)
+        {
+            var employeeDb =  _repository.Employee.GetEmployee(companyId, id,
+            trackChanges);
+            if (employeeDb is null)
+                throw new EmployeeNotFoundException(id);
+            return employeeDb;
         }
         public void SaveChangesForPatch(EmployeeForUpdateDto employeeToPatch, Employee
         employeeEntity)
