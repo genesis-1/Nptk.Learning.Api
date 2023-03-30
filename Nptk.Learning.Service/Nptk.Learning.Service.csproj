@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nptk.Learning.Contracts\Nptk.Learning.Contracts.csproj" />
+    <ProjectReference Include="..\Nptk.Learning.Service.Contracts\Nptk.Learning.Service.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
