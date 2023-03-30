@@ -6,6 +6,7 @@ using NLog;
 using Nptk.Learning.Api.Extensions;
 using Nptk.Learning.Contracts;
 using Nptk.Learning.Main.Extensions;
+using Nptk.Learning.Presentation.ActionFilters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +37,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.ConfigureSqlContext(builder.Configuration);
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
+builder.Services.AddScoped<ValidationFilterAttribute>();
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.SuppressModelStateInvalidFilter = true;

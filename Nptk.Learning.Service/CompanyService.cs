@@ -29,7 +29,7 @@ namespace Nptk.Learning.Service
         public async Task<IEnumerable<CompanyDto>> GetAllCompaniesAsync (bool trackChanges)
         {
            
-                var companies = _repository.Company.GetAllCompaniesAsync(trackChanges);
+                var companies = await _repository.Company.GetAllCompaniesAsync(trackChanges);
                 var companiesDto = _mapper.Map<IEnumerable<CompanyDto>>(companies);
                 return companiesDto;
             
@@ -101,5 +101,10 @@ namespace Nptk.Learning.Service
             _mapper.Map(companyForUpdate, companyEntity);
             await _repository.SaveAsync();
         }
+
+       
+
+       
+
     }
 }
