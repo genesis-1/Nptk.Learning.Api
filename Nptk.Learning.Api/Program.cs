@@ -7,6 +7,8 @@ using Nptk.Learning.Api.Extensions;
 using Nptk.Learning.Contracts;
 using Nptk.Learning.Main.Extensions;
 using Nptk.Learning.Presentation.ActionFilters;
+using Nptk.Learning.Service.DataShaper;
+using Nptk.Learning.Shared.DataTransferObjects;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,7 @@ new ServiceCollection().AddLogging().AddMvc().AddNewtonsoftJson()
 .OfType<NewtonsoftJsonPatchInputFormatter>().First();
 // Add services to the container.
 builder.Services.ConfigureCors();
+builder.Services.AddScoped<IDataShaper<EmployeeDto>, DataShaper<EmployeeDto>>();
 builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureIISIntergration();
 builder.Services.AddAutoMapper(typeof(Program));

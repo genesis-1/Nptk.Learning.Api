@@ -3,6 +3,7 @@ using Nptk.Learning.Shared.DataTransferObjects;
 using Nptk.Learning.Shared.RequestFeatures;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ Guid companyId, Guid id, bool compTrackChanges, bool empTrackChanges);
         void SaveChangesForPatch(EmployeeForUpdateDto employeeToPatch, Employee
         employeeEntity);
 
-        Task<(IEnumerable<EmployeeDto> employees, MetaData metaData)> GetEmployeesAsync(Guid companyId,
+        Task<(IEnumerable<Entity> employees, MetaData metaData)> GetEmployeesAsync(Guid companyId,
 EmployeeParameters employeeParameters, bool trackChanges);
 
 
